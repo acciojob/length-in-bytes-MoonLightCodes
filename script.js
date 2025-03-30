@@ -1,7 +1,19 @@
-const byteSize = (str) => {
-  // write your code here
-};
+// script.js
+function byteSize(str) {
+    const blob = new Blob([str]);
+    return blob.size;
+}
 
-// Do not change the code below
-const str = prompt("Enter some string.");
-alert(byteSize(str));
+function calculateByteSize() {
+    const input = document.getElementById("textInput").value;
+    const resultElement = document.getElementById("result");
+    
+    if (input === undefined || input === null) {
+        resultElement.textContent = "Please enter a valid string.";
+        resultElement.style.color = "red";
+    } else {
+        const size = byteSize(input);
+        resultElement.textContent = `Byte Size: ${size}`;
+        resultElement.style.color = "black";
+    }
+}
